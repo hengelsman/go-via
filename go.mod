@@ -3,16 +3,16 @@ module github.com/hengelsman/go-via
 go 1.26
 
 require (
+	dario.cat/mergo v1.0.0
 	github.com/gin-contrib/cors v1.3.1
 	github.com/gin-gonic/gin v1.12.0
 	github.com/google/gopacket v1.1.19
-	github.com/imdario/mergo v0.3.16
 	github.com/kdomanski/iso9660 v0.2.1
 	github.com/koding/multiconfig v0.0.0-20171124222453-69c27309b2d7
 	github.com/mdlayher/raw v0.0.0-20191009151244-50f2db8cc065
 	github.com/pin/tftp v0.0.0-20210809155059-0161c5dd2e96
 	github.com/rakyll/statik v0.1.8
-	github.com/sirupsen/logrus v1.7.1
+	github.com/sirupsen/logrus v1.9.4
 	github.com/swaggo/files v0.0.0-20190704085106-630677cd5c14
 	github.com/swaggo/gin-swagger v1.3.3
 	github.com/swaggo/swag v1.8.12
@@ -55,7 +55,6 @@ require (
 	github.com/kr/pretty v0.3.1 // indirect
 	github.com/kr/text v0.2.0 // indirect
 	github.com/leodido/go-urn v1.4.0 // indirect
-	github.com/magefile/mage v1.10.0 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mattn/go-sqlite3 v1.14.34 // indirect
