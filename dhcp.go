@@ -11,9 +11,9 @@ import (
 	"time"
 
 	"github.com/google/gopacket/layers"
-	"github.com/maxiepax/go-via/api"
-	"github.com/maxiepax/go-via/db"
-	"github.com/maxiepax/go-via/models"
+	"github.com/hengelsman/go-via/api"
+	"github.com/hengelsman/go-via/db"
+	"github.com/hengelsman/go-via/models"
 	"github.com/sirupsen/logrus"
 	"gorm.io/gorm"
 )

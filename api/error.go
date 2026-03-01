@@ -2,7 +2,7 @@ package api
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/maxiepax/go-via/models"
+	"github.com/hengelsman/go-via/models"
 )
 
 func Error(c *gin.Context, status int, err error) {

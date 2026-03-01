@@ -12,9 +12,9 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/imdario/mergo"
-	"github.com/maxiepax/go-via/db"
-	"github.com/maxiepax/go-via/models"
-	"github.com/maxiepax/go-via/secrets"
+	"github.com/hengelsman/go-via/db"
+	"github.com/hengelsman/go-via/models"
+	"github.com/hengelsman/go-via/secrets"
 	"github.com/sirupsen/logrus"
 	"gorm.io/gorm"
 )

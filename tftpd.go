@@ -27,9 +27,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/maxiepax/go-via/config"
-	"github.com/maxiepax/go-via/db"
-	"github.com/maxiepax/go-via/models"
+	"github.com/hengelsman/go-via/config"
+	"github.com/hengelsman/go-via/db"
+	"github.com/hengelsman/go-via/models"
 	"github.com/sirupsen/logrus"
 	"gorm.io/gorm/clause"
 

@@ -19,9 +19,9 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/imdario/mergo"
 	"github.com/kdomanski/iso9660/util"
-	"github.com/maxiepax/go-via/config"
-	"github.com/maxiepax/go-via/db"
-	"github.com/maxiepax/go-via/models"
+	"github.com/hengelsman/go-via/config"
+	"github.com/hengelsman/go-via/db"
+	"github.com/hengelsman/go-via/models"
 	"github.com/sirupsen/logrus"
 	"gorm.io/gorm"
 )

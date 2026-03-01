@@ -10,13 +10,13 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/maxiepax/go-via/api"
-	"github.com/maxiepax/go-via/config"
-	ca "github.com/maxiepax/go-via/crypto"
-	"github.com/maxiepax/go-via/db"
-	"github.com/maxiepax/go-via/models"
-	"github.com/maxiepax/go-via/secrets"
-	"github.com/maxiepax/go-via/websockets"
+	"github.com/hengelsman/go-via/api"
+	"github.com/hengelsman/go-via/config"
+	ca "github.com/hengelsman/go-via/crypto"
+	"github.com/hengelsman/go-via/db"
+	"github.com/hengelsman/go-via/models"
+	"github.com/hengelsman/go-via/secrets"
+	"github.com/hengelsman/go-via/websockets"
 	"github.com/rakyll/statik/fs"
 
 	swaggerFiles "github.com/swaggo/files"
@@ -28,8 +28,8 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	_ "github.com/maxiepax/go-via/docs"
-	_ "github.com/maxiepax/go-via/statik"
+	_ "github.com/hengelsman/go-via/docs"
+	_ "github.com/hengelsman/go-via/statik"
 )
 
 var (
