@@ -1,0 +1,7 @@
+FROM debian:bookworm-slim
+
+# Use a binary built on the host (go build -o go-via)
+COPY go-via /usr/local/bin/go-via
+
+EXPOSE 8080
+ENTRYPOINT ["/usr/local/bin/go-via"]

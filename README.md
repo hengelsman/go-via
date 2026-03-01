@@ -175,10 +175,10 @@ INFO[0000] cert                                          server.crt="server.crt 
 INFO[0000] Webserver                                     port=":8443"
 ```
 
-<h3> Option 3: Download source and compile with go 1.16 and Angular 11 </h3>
+<h3> Option 3: Download source and compile with go 1.26 and Angular 11 </h3>
 
 with Ubuntu 20.20 installed, do the following:
-install golang 1.16.x compiler
+install golang 1.26.x compiler
 ``` bash
 sudo snap install go --classic
 ```
