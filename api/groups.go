@@ -10,8 +10,8 @@ import (
 
 	/*_ "github.com/GehirnInc/crypt/sha512_crypt"*/
 
+	"dario.cat/mergo"
 	"github.com/gin-gonic/gin"
-	"github.com/imdario/mergo"
 	"github.com/hengelsman/go-via/db"
 	"github.com/hengelsman/go-via/models"
 	"github.com/hengelsman/go-via/secrets"

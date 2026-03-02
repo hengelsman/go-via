@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"strconv"
 
+	"dario.cat/mergo"
 	"github.com/gin-gonic/gin"
-	"github.com/imdario/mergo"
 	"github.com/hengelsman/go-via/db"
 	"github.com/hengelsman/go-via/models"
 	"github.com/sirupsen/logrus"

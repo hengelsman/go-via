@@ -19,10 +19,10 @@ import (
 	"github.com/hengelsman/go-via/db"
 	"github.com/hengelsman/go-via/models"
 	"github.com/hengelsman/go-via/secrets"
+	"github.com/hengelsman/go-via/vmware"
 	"github.com/sirupsen/logrus"
 	"github.com/vmware/govmomi"
 	"github.com/vmware/govmomi/find"
-	"github.com/vmware/govmomi/govc/host/esxcli"
 	"github.com/vmware/govmomi/object"
 	"github.com/vmware/govmomi/vim25/types"
 	"gorm.io/gorm/clause"
@@ -158,7 +158,7 @@ func ProvisioningWorker(item models.Address, key string) {
 			"postconfig": err,
 		}).Info(item.IP)
 	}
-	e, err := esxcli.NewExecutor(c.Client, host)
+	e, err := vmware.NewExecutor(item.IP, "root", decryptedPassword)
 	if err != nil {
 		logrus.WithFields(logrus.Fields{
 			"postconfig": err,
@@ -337,7 +337,7 @@ func callback(url string, data models.Address) error {
 	return nil
 }
 
-func PostConfigSyslog(e *esxcli.Executor, item models.Address) error {
+func PostConfigSyslog(e *vmware.Executor, item models.Address) error {
 	//configure Syslog and modify firewall to allow syslog.
 	cmd := strings.Fields("system syslog config set --loghost=" + item.Group.Syslog)
 	_, err := e.Run(cmd)
@@ -375,7 +375,7 @@ func PostConfigSyslog(e *esxcli.Executor, item models.Address) error {
 	return nil
 }
 
-func PostConfigNTP(e *esxcli.Executor, item models.Address, host *object.HostSystem, ctx context.Context) error {
+func PostConfigNTP(e *vmware.Executor, item models.Address, host *object.HostSystem, ctx context.Context) error {
 	cmd := strings.Fields("system ntp set")
 	for _, k := range strings.Split(item.Group.NTP, ",") {
 		cmd = append(cmd, "--server", string(k))
@@ -428,7 +428,7 @@ func PostConfigNTP(e *esxcli.Executor, item models.Address, host *object.HostSys
 	return nil
 }
 
-func PostConfigDomain(e *esxcli.Executor, item models.Address) error {
+func PostConfigDomain(e *vmware.Executor, item models.Address) error {
 	//add search domains
 	search := strings.Fields("network ip dns search add -d")
 	search = append(search, item.Domain)
@@ -456,7 +456,7 @@ func PostConfigDomain(e *esxcli.Executor, item models.Address) error {
 	return nil
 }
 
-func PostConfigSSH(e *esxcli.Executor, item models.Address, host *object.HostSystem, ctx context.Context) error {
+func PostConfigSSH(e *vmware.Executor, item models.Address, host *object.HostSystem, ctx context.Context) error {
 	s, err := host.ConfigManager().ServiceSystem(ctx)
 	if err != nil {
 		return err
@@ -505,7 +505,7 @@ func PostConfigSSH(e *esxcli.Executor, item models.Address, host *object.HostSys
 	return nil
 }
 
-func PostConfigVlan(e *esxcli.Executor, item models.Address) error {
+func PostConfigVlan(e *vmware.Executor, item models.Address) error {
 	//if vlan is set, configure the "VM Network" portgroup with the same vlanid.
 
 	cmd := strings.Fields("network vswitch standard portgroup set --vlan-id " + item.Group.Vlan)
@@ -528,7 +528,7 @@ func PostConfigVlan(e *esxcli.Executor, item models.Address) error {
 	return nil
 }
 
-func PostConfigCertificate(e *esxcli.Executor, item models.Address, decryptedPassword string, ctx context.Context, timeout int, i int, c *govmomi.Client, url *url.URL) error {
+func PostConfigCertificate(e *vmware.Executor, item models.Address, decryptedPassword string, ctx context.Context, timeout int, i int, c *govmomi.Client, url *url.URL) error {
 	//create directory
 	os.MkdirAll("./cert/"+item.Hostname+"."+item.Domain, os.ModePerm)
 	//create certificate
@@ -620,11 +620,7 @@ func PostConfigCertificate(e *esxcli.Executor, item models.Address, decryptedPas
 	}
 
 	// re-authenticate and create new session since last reboot.
-	host, err := find.NewFinder(c.Client).DefaultHostSystem(ctx)
-	if err != nil {
-		return err
-	}
-	e, err = esxcli.NewExecutor(c.Client, host)
+	e, err = vmware.NewExecutor(item.IP, "root", decryptedPassword)
 	if err != nil {
 		return err
 	}
