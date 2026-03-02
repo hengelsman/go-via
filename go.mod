@@ -9,7 +9,7 @@ require (
 	github.com/google/gopacket v1.1.19
 	github.com/kdomanski/iso9660 v0.4.0
 	github.com/koding/multiconfig v0.0.0-20171124222453-69c27309b2d7
-	github.com/mdlayher/raw v0.0.0-20191009151244-50f2db8cc065
+	github.com/mdlayher/raw v0.1.0
 	github.com/pin/tftp v0.0.0-20210809155059-0161c5dd2e96
 	github.com/rakyll/statik v0.1.8
 	github.com/sirupsen/logrus v1.9.4
@@ -18,7 +18,7 @@ require (
 	github.com/swaggo/swag v1.16.6
 	github.com/vmware/govmomi v0.53.0
 	golang.org/x/crypto v0.48.0
-	gorm.io/datatypes v1.0.7
+	gorm.io/datatypes v1.2.7
 	gorm.io/driver/sqlite v1.6.0
 	gorm.io/gorm v1.31.1
 	nhooyr.io/websocket v1.8.17
@@ -26,7 +26,7 @@ require (
 
 require (
 	filippo.io/edwards25519 v1.2.0 // indirect
-	github.com/BurntSushi/toml v1.4.1-0.20240526193622-a339e1f7089c // indirect
+	github.com/BurntSushi/toml v1.6.0 // indirect
 	github.com/KyleBanks/depth v1.2.1 // indirect
 	github.com/bytedance/gopkg v0.1.3 // indirect
 	github.com/bytedance/sonic v1.15.0 // indirect
@@ -56,11 +56,14 @@ require (
 	github.com/jackc/pgx/v5 v5.8.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
+	github.com/josharian/native v1.1.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/cpuid/v2 v2.3.0 // indirect
 	github.com/leodido/go-urn v1.4.0 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mattn/go-sqlite3 v1.14.34 // indirect
+	github.com/mdlayher/packet v1.1.2 // indirect
+	github.com/mdlayher/socket v0.5.1 // indirect
 	github.com/microsoft/go-mssqldb v1.9.7 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
