@@ -23,6 +23,12 @@ Upgrade notes / compatibility
 - ESXi provisioning: The app now uses SSH to run equivalent esxcli commands. Ensure ESXi hosts are reachable via SSH and credentials are available in your configuration/secrets.
 - If you maintain automated pipelines that expect the old `govc` integration, update them accordingly.
 
+Breaking changes / action required
+---------------------------------
+- ESXi provisioning now uses SSH execution instead of `govc`/`esxcli`. Ensure target hosts allow SSH access from the service and update stored credentials/secrets accordingly.
+- `mergo` moved to a new module path (`dario.cat/mergo`) and was bumped to v1.x; review any custom merge behavior to confirm compatibility.
+- Docker build changed to a CGO-enabled multi-stage image; CI pipelines that build the image may need to enable CGO and install build deps or use the provided `Dockerfile`.
+
 How to deploy
 -------------
 See `docker-compose.yml` for a simple deployment using the local image. For production, push the image to a registry (GHCR, Docker Hub) and update `image:` in the compose file.
